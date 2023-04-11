@@ -1,7 +1,7 @@
-package co.id.bca.spring.NanoCustomer.repository;
+package id.co.bca.spring.NanoCustomer.repository;
 
-import co.id.bca.spring.NanoCustomer.datasource.NanoCustDataSource;
-import co.id.bca.spring.NanoCustomer.model.Customer;
+import id.co.bca.spring.NanoCustomer.datasource.NanoCustDataSource;
+import id.co.bca.spring.NanoCustomer.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

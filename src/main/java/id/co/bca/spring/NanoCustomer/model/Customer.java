@@ -1,4 +1,4 @@
-package co.id.bca.spring.NanoCustomer.model;
+package id.co.bca.spring.NanoCustomer.model;
 
 public class Customer {
     int Id;

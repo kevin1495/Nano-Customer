@@ -1,6 +1,6 @@
-package co.id.bca.spring.NanoCustomer.datasource;
+package id.co.bca.spring.NanoCustomer.datasource;
 
-import co.id.bca.spring.NanoCustomer.model.Customer;
+import id.co.bca.spring.NanoCustomer.model.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;

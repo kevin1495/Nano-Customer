@@ -1,7 +1,7 @@
-package co.id.bca.spring.NanoCustomer.service;
+package id.co.bca.spring.NanoCustomer.service;
 
-import co.id.bca.spring.NanoCustomer.model.Customer;
-import co.id.bca.spring.NanoCustomer.repository.ICustRepo;
+import id.co.bca.spring.NanoCustomer.model.Customer;
+import id.co.bca.spring.NanoCustomer.repository.ICustRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;

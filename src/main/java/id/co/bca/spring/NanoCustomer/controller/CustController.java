@@ -1,7 +1,7 @@
-package co.id.bca.spring.NanoCustomer.controller;
+package id.co.bca.spring.NanoCustomer.controller;
 
-import co.id.bca.spring.NanoCustomer.model.Customer;
-import co.id.bca.spring.NanoCustomer.service.CustomerService;
+import id.co.bca.spring.NanoCustomer.model.Customer;
+import id.co.bca.spring.NanoCustomer.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
