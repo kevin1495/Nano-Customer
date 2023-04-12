@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class CustomerService {
     @Autowired
-    @Qualifier("custRepoJDBCBasic")
+    @Qualifier("custRepoHibernate")
     ICustRepo iCustRepo;
 
     public void insert(Customer customer){ iCustRepo.create(customer); }
