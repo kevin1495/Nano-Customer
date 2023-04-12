@@ -20,24 +20,21 @@ import java.util.List;
 @RequestMapping("/customer")
 public class CustController {
     @Autowired
-    CustomerService customerService;
+    ICustomerService iCustomerService;
 
-    @Autowired
-    CustomerServiceJPA customerServiceJPA;
-
-    @Autowired
-    OccupationAndCustomerService occupationAndCustomerService;
+//    @Autowired
+//    OccupationAndCustomerService occupationAndCustomerService;
 
     @GetMapping("/all")
     public @ResponseBody List<CustomerModel> findAll(){
-        return customerService.allEmployees();
+        return iCustomerService.allCustomers();
     }
 
     @GetMapping("/id")
     public @ResponseBody CustomerModel getCustomer(@RequestParam("id") int id){
         CustomerModel customer = new CustomerModel();
         customer.setId(id);
-        return customerService.findCust(customer);
+        return iCustomerService.FindTheCustomer(customer);
     }
 
     @GetMapping("/add")
@@ -45,10 +42,10 @@ public class CustController {
                               @RequestParam("custemail") String custEmail)
     {
         CustomerModel customer = new CustomerModel();
-        customer.setId(0);
+//        customer.setId(0);
         customer.setCustName(custName);
         customer.setCustEmail(custEmail);
-        customerService.insert(customer);
+        iCustomerService.insert(customer);
         return "redirect:/customer/all";
     }
 
@@ -61,7 +58,7 @@ public class CustController {
         customer.setId(id);
         customer.setCustName(custName);
         customer.setCustEmail(custEmail);
-        customerService.update(customer);
+        iCustomerService.update(customer);
         return "redirect:/customer/all";
     }
 
@@ -69,52 +66,7 @@ public class CustController {
     public String deleteCustomer(@RequestParam("id") int id){
         CustomerModel customer = new CustomerModel();
         customer.setId(id);
-        customerService.delete(customer);
-        return  "redirect:/customer/all";
-    }
-
-    @GetMapping("/all2")
-    public @ResponseBody List<CustomerModel> findAll2(){
-        return customerServiceJPA.allCustomers();
-    }
-
-    @GetMapping("/id2")
-    public @ResponseBody CustomerModel getCustomer2(@RequestParam("id") int id){
-        CustomerModel customer = new CustomerModel();
-        customer.setId(id);
-        return customerServiceJPA.FindTheCustomer(customer);
-    }
-
-    @GetMapping("/add2")
-    public String addCustomer2(@RequestParam("custname") String custName,
-                              @RequestParam("custemail") String custEmail)
-    {
-        CustomerModel customer = new CustomerModel();
-        customer.setId(0);
-        customer.setCustName(custName);
-        customer.setCustEmail(custEmail);
-        customerServiceJPA.insert(customer);
-        return "redirect:/customer/all";
-    }
-
-    @GetMapping("/update2")
-    public String updateCustomer2(@RequestParam("id") int id,
-                                 @RequestParam("custname") String custName,
-                                 @RequestParam("custemail") String custEmail)
-    {
-        CustomerModel customer = new CustomerModel();
-        customer.setId(id);
-        customer.setCustName(custName);
-        customer.setCustEmail(custEmail);
-        customerServiceJPA.update(customer);
-        return "redirect:/customer/all";
-    }
-
-    @GetMapping("/delete2")
-    public String deleteCustomer2(@RequestParam("id") int id){
-        CustomerModel customer = new CustomerModel();
-        customer.setId(id);
-        customerServiceJPA.delete(customer);
+        iCustomerService.delete(customer);
         return  "redirect:/customer/all";
     }
 
@@ -122,20 +74,20 @@ public class CustController {
     public @ResponseBody List<CustomerModel> findAllPage(@RequestParam("page") int page,
                                                          @RequestParam("size") int size)
     {
-        return customerServiceJPA.allCustomersPage(page,size);
+        return iCustomerService.allCustomersPage(page,size);
     }
 
-    @GetMapping("/add-co")
-    public String addCustomerNew(@RequestParam("custname") String custName,
-                                 @RequestParam("custemail") String custEmail,
-                                 @RequestParam("oid") int oid){
-        CustomerModel customerModel = new CustomerModel();
-        customerModel.setCustName(custName);
-        customerModel.setCustEmail(custEmail);
-        customerModel.setOccupationModel(null);
-
-//        occupationAndCustomerService.addCustomerToOccupation(customerModel, oid);
-        occupationAndCustomerService.addCustomerToOccupationWithTransactional(customerModel, oid);
-        return  "redirect:/customer/all";
-    };
+//    @GetMapping("/add-co")
+//    public String addCustomerNew(@RequestParam("custname") String custName,
+//                                 @RequestParam("custemail") String custEmail,
+//                                 @RequestParam("oid") int oid){
+//        CustomerModel customerModel = new CustomerModel();
+//        customerModel.setCustName(custName);
+//        customerModel.setCustEmail(custEmail);
+//        customerModel.setOccupationModel(null);
+//
+//        occupationAndCustomerService.addCustomerToOccupation(customerModel, oid); --pilih salah satu
+//        occupationAndCustomerService.addCustomerToOccupationWithTransactional(customerModel, oid);
+//        return  "redirect:/customer/all";
+//    };
 }

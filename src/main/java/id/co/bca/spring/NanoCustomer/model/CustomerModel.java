@@ -1,7 +1,10 @@
 package id.co.bca.spring.NanoCustomer.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name="customer")
@@ -10,12 +13,14 @@ public class CustomerModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    Integer Id;
+    private Integer Id;
     @Column(name = "cust_name")
-    String custName;
+    private String custName;
     @Column(name = "cust_email")
-    String custEmail;
-
+    private String custEmail;
+    @JsonBackReference
+    @OneToMany(mappedBy = "customerModel")
+    private List<CardModel> cardModels;
 
     @ManyToOne
     @JoinColumn(name = "occupation_id")
