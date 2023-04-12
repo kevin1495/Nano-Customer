@@ -1,7 +1,7 @@
 package id.co.bca.spring.NanoCustomer.repository;
 
 import id.co.bca.spring.NanoCustomer.datasource.NanoCustDataSource;
-import id.co.bca.spring.NanoCustomer.model.Customer;
+import id.co.bca.spring.NanoCustomer.model.CustomerModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -12,27 +12,27 @@ public class CustRepoJDBCBasic implements ICustRepo {
     NanoCustDataSource nanoCustDataSource;
 
     @Override
-    public void create(Customer customer) {
+    public void create(CustomerModel customer) {
         nanoCustDataSource.insertCustomer(customer);
     }
 
     @Override
-    public List<Customer> retrieveAll() {
+    public List<CustomerModel> retrieveAll() {
         return nanoCustDataSource.getAllCustomer();
     }
 
     @Override
-    public Customer retrieveUnique(Customer customer) {
+    public CustomerModel retrieveUnique(CustomerModel customer) {
         return nanoCustDataSource.getSpesificCustomer(customer);
     }
 
     @Override
-    public void update(Customer customer) {
+    public void update(CustomerModel customer) {
         nanoCustDataSource.updateCustomer(customer);
     }
 
     @Override
-    public void deleteUnique(Customer customer) {
+    public void deleteUnique(CustomerModel customer) {
         nanoCustDataSource.deleteCustomer(customer);
     }
 }

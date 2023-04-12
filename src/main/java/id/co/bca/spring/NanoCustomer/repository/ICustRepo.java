@@ -1,13 +1,13 @@
 package id.co.bca.spring.NanoCustomer.repository;
 
-import id.co.bca.spring.NanoCustomer.model.Customer;
+import id.co.bca.spring.NanoCustomer.model.CustomerModel;
 
 import java.util.List;
 
 public interface ICustRepo {
-    void create(Customer customer);
-    List<Customer> retrieveAll();
-    Customer retrieveUnique(Customer customer);
-    void update(Customer customer);
-    void deleteUnique(Customer customer);
+    void create(CustomerModel customer);
+    List<CustomerModel> retrieveAll();
+    CustomerModel retrieveUnique(CustomerModel customer);
+    void update(CustomerModel customer);
+    void deleteUnique(CustomerModel customer);
 }

@@ -1,6 +1,6 @@
 package id.co.bca.spring.NanoCustomer.datasource;
 
-import id.co.bca.spring.NanoCustomer.model.Customer;
+import id.co.bca.spring.NanoCustomer.model.CustomerModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -35,7 +35,7 @@ public class NanoCustDataSource {
         }
     }
 
-    public void insertCustomer(Customer customer){
+    public void insertCustomer(CustomerModel customer){
         Connection connection = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -61,7 +61,7 @@ public class NanoCustDataSource {
         }
     }
 
-    public void updateCustomer(Customer customer){
+    public void updateCustomer(CustomerModel customer){
         Connection connection = null;
         PreparedStatement ps = null;
 
@@ -82,7 +82,7 @@ public class NanoCustDataSource {
         }
     }
 
-    public void deleteCustomer(Customer customer){
+    public void deleteCustomer(CustomerModel customer){
         Connection connection = null;
         PreparedStatement ps = null;
 
@@ -101,8 +101,8 @@ public class NanoCustDataSource {
         }
     }
 
-    public List<Customer> getAllCustomer(){
-        List<Customer> customers = new ArrayList<>();
+    public List<CustomerModel> getAllCustomer(){
+        List<CustomerModel> customers = new ArrayList<>();
         Connection connection = null;
         Statement statement = null;
         ResultSet rs = null;
@@ -112,7 +112,7 @@ public class NanoCustDataSource {
             statement = connection.createStatement();
             rs = statement.executeQuery(STM_RETRIEVE_ALL);
             while(rs.next()){
-                Customer customer = new Customer();
+                CustomerModel customer = new CustomerModel();
                 customer.setId(rs.getInt("id"));
                 customer.setCustName(rs.getString("cust_name"));
                 customer.setCustEmail(rs.getString("cust_email"));
@@ -128,8 +128,8 @@ public class NanoCustDataSource {
         return customers;
     }
 
-    public Customer getSpesificCustomer(Customer customer){
-        Customer cust = new Customer();
+    public CustomerModel getSpesificCustomer(CustomerModel customer){
+        CustomerModel cust = new CustomerModel();
         Connection connection = null;
         PreparedStatement ps = null;
         ResultSet rs = null;

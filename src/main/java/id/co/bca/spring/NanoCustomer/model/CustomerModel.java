@@ -1,20 +1,34 @@
 package id.co.bca.spring.NanoCustomer.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="customer")
-public class Customer {
+public class CustomerModel {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    int Id;
+    Integer Id;
     @Column(name = "cust_name")
     String custName;
     @Column(name = "cust_email")
     String custEmail;
+
+
+    @ManyToOne
+    @JoinColumn(name = "occupation_id")
+    @JsonManagedReference
+    private OccupationModel occupationModel;
+
+    public OccupationModel getOccupationModel() {
+        return occupationModel;
+    }
+
+    public void setOccupationModel(OccupationModel occupationModel) {
+        this.occupationModel = occupationModel;
+    }
 
     public int getId() {
         return Id;

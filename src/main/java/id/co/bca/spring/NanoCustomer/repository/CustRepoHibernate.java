@@ -1,6 +1,6 @@
 package id.co.bca.spring.NanoCustomer.repository;
 
-import id.co.bca.spring.NanoCustomer.model.Customer;
+import id.co.bca.spring.NanoCustomer.model.CustomerModel;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Query;
@@ -23,7 +23,7 @@ public class CustRepoHibernate implements ICustRepo {
     private TransactionTemplate transactionTemplate;
 
     @Override
-    public void create(Customer customer) {
+    public void create(CustomerModel customer) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
         em.persist(customer);
@@ -31,21 +31,21 @@ public class CustRepoHibernate implements ICustRepo {
     }
 
     @Override
-    public List<Customer> retrieveAll() {
-        return entityManager.createQuery("from Customer", Customer.class).getResultList();
+    public List<CustomerModel> retrieveAll() {
+        return entityManager.createQuery("from CustomerModel", CustomerModel.class).getResultList();
     }
 
     @Override
-    public Customer retrieveUnique(Customer customer) {
-        return entityManager.find(Customer.class, customer.getId());
+    public CustomerModel retrieveUnique(CustomerModel customer) {
+        return entityManager.find(CustomerModel.class, customer.getId());
     }
 
     @Override
-    public void update(Customer customer) {
-        transactionTemplate.execute(new TransactionCallback<Customer>() {
+    public void update(CustomerModel customer) {
+        transactionTemplate.execute(new TransactionCallback<CustomerModel>() {
             @Override
-            public Customer doInTransaction(TransactionStatus status) {
-                Customer dbCust = entityManager.find(Customer.class, customer.getId());
+            public CustomerModel doInTransaction(TransactionStatus status) {
+                CustomerModel dbCust = entityManager.find(CustomerModel.class, customer.getId());
                 dbCust.setCustName(customer.getCustName());
                 dbCust.setCustEmail(customer.getCustEmail());
                 return null;
@@ -54,11 +54,11 @@ public class CustRepoHibernate implements ICustRepo {
     }
 
     @Override
-    public void deleteUnique(Customer customer) {
-        transactionTemplate.execute(new TransactionCallback<Customer>() {
+    public void deleteUnique(CustomerModel customer) {
+        transactionTemplate.execute(new TransactionCallback<CustomerModel>() {
             @Override
-            public Customer doInTransaction(TransactionStatus status) {
-                Query query = entityManager.createQuery("delete from Customer where id=:id");
+            public CustomerModel doInTransaction(TransactionStatus status) {
+                Query query = entityManager.createQuery("delete from CustomerModel where id=:id");
                 query.setParameter("id",customer.getId());
                 query.executeUpdate();
                 return null;
