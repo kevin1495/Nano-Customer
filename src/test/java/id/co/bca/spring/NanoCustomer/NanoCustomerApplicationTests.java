@@ -1,4 +1,4 @@
-package co.id.bca.spring.NanoCustomer;
+package id.co.bca.spring.NanoCustomer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
