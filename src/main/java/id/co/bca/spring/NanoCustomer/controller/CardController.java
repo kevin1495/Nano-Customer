@@ -5,11 +5,9 @@ import id.co.bca.spring.NanoCustomer.model.CustomerModel;
 import id.co.bca.spring.NanoCustomer.service.CardService;
 import id.co.bca.spring.NanoCustomer.service.CardWithCustService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,11 +19,13 @@ public class CardController {
     @Autowired
     CardWithCustService cardWithCustService;
     @GetMapping("/all")
+    @ResponseStatus(HttpStatus.OK)
     public @ResponseBody List<CardModel> findAll(){
         return cardService.allCards();
     }
 
     @GetMapping("/id")
+    @ResponseStatus(HttpStatus.OK)
     public @ResponseBody CardModel getCard(@RequestParam("id") int id){
         CardModel card = new CardModel();
         card.setId(id);
@@ -40,6 +40,7 @@ public class CardController {
 //    }
 
     @GetMapping("/add")
+    @ResponseStatus(HttpStatus.OK)
     public String addCustomerNew(@RequestParam("cardtype") String cardType,
                                  @RequestParam("cardnumber") String cardNumber,
                                  @RequestParam("cid") int oid){
@@ -52,6 +53,7 @@ public class CardController {
         return  "redirect:/card/all";
     };
     @GetMapping("/add-v1")
+    @ResponseStatus(HttpStatus.OK)
     public String addCard(@RequestParam("cardtype") String cardType,
                               @RequestParam("cardnumber") String cardNumber)
     {
@@ -64,6 +66,7 @@ public class CardController {
     }
 
     @GetMapping("/update")
+    @ResponseStatus(HttpStatus.OK)
     public String updateCard(@RequestParam("id") int id,
                                  @RequestParam("cardnumber") String cardNumber,
                                  @RequestParam("cardtype") String cardType)
@@ -77,6 +80,7 @@ public class CardController {
     }
 
     @GetMapping("/delete")
+    @ResponseStatus(HttpStatus.OK)
     public String deleteCard(@RequestParam("id") int id){
         CardModel card = new CardModel();
         card.setId(id);
@@ -85,11 +89,10 @@ public class CardController {
     }
 
     @GetMapping("/allpage")
+    @ResponseStatus(HttpStatus.OK)
     public @ResponseBody List<CardModel> findAllPage(@RequestParam("page") int page,
                                                          @RequestParam("size") int size)
     {
         return cardService.allCardsPage(page,size);
     }
-
-
 }

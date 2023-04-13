@@ -1,5 +1,6 @@
 package id.co.bca.spring.NanoCustomer.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -14,6 +15,7 @@ public class CardModel {
     private String cardType;
     @Column(name = "card_number")
     private String cardNumber;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "cust_id")
     @JsonManagedReference
