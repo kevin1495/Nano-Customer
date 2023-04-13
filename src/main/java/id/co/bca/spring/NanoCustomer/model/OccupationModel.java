@@ -15,9 +15,9 @@ public class OccupationModel {
     private Integer id;
     @Column(name = "name")
     private String name;
-    @JsonBackReference
-    @OneToMany(mappedBy = "occupationModel")
-    private List<CustomerModel> customerModels;
+//    @JsonBackReference
+//    @OneToMany(mappedBy = "occupationModel")
+//    private List<CustomerModel> customerModels;
 
     public int getId() {
         return id;
@@ -35,11 +35,11 @@ public class OccupationModel {
         this.name = name;
     }
 
-    public List<CustomerModel> getCustomerModels() {
-        return customerModels;
-    }
-
-    public void setCustomerModels(List<CustomerModel> customerModels) {
-        this.customerModels = customerModels;
-    }
+//    public List<CustomerModel> getCustomerModels() {
+//        return customerModels;
+//    }
+//
+//    public void setCustomerModels(List<CustomerModel> customerModels) {
+//        this.customerModels = customerModels;
+//    }
 }

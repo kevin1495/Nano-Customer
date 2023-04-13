@@ -1,6 +1,7 @@
 package id.co.bca.spring.NanoCustomer.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -18,22 +19,23 @@ public class CustomerModel {
     private String custName;
     @Column(name = "cust_email")
     private String custEmail;
+    @JsonIgnore
     @JsonBackReference
     @OneToMany(mappedBy = "customerModel")
     private List<CardModel> cardModels;
-
-    @ManyToOne
-    @JoinColumn(name = "occupation_id")
-    @JsonManagedReference
-    private OccupationModel occupationModel;
-
-    public OccupationModel getOccupationModel() {
-        return occupationModel;
-    }
-
-    public void setOccupationModel(OccupationModel occupationModel) {
-        this.occupationModel = occupationModel;
-    }
+//
+//    @ManyToOne
+//    @JoinColumn(name = "occupation_id")
+//    @JsonManagedReference
+//    private OccupationModel occupationModel;
+//
+//    public OccupationModel getOccupationModel() {
+//        return occupationModel;
+//    }
+//
+//    public void setOccupationModel(OccupationModel occupationModel) {
+//        this.occupationModel = occupationModel;
+//    }
 
     public int getId() {
         return Id;

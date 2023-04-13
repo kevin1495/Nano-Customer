@@ -19,20 +19,20 @@ public class OccupationAndCustomerService {
     CustRepoSpringDataJPA custRepoSpringDataJPA;
 
     public void addCustomerToOccupation(CustomerModel customerModel, int id){
-        custRepoSpringDataJPA.save(customerModel);
-        OccupationModel occupationModel = occupRepoSpringDataJPA.findOccupationById(Integer.valueOf(id));
-        occupationModel.getCustomerModels().add(customerModel);
-        occupRepoSpringDataJPA.save(occupationModel);
-        customerModel.setOccupationModel(occupationModel);
-        custRepoSpringDataJPA.save(customerModel);
+//        custRepoSpringDataJPA.save(customerModel);
+//        OccupationModel occupationModel = occupRepoSpringDataJPA.findOccupationById(Integer.valueOf(id));
+//        occupationModel.getCustomerModels().add(customerModel);
+//        occupRepoSpringDataJPA.save(occupationModel);
+//        customerModel.setOccupationModel(occupationModel);
+//        custRepoSpringDataJPA.save(customerModel);
     }
 
     @Transactional
     public void addCustomerToOccupationWithTransactional(CustomerModel customerModel, int id){
-        custRepoSpringDataJPA.save(customerModel);
-        OccupationModel occupationModel = occupRepoSpringDataJPA.findOccupationById(Integer.valueOf(id));
-        occupRepoSpringDataJPA.save(occupationModel);
-        customerModel.setOccupationModel(occupationModel);
-        custRepoSpringDataJPA.save(customerModel);
+//        custRepoSpringDataJPA.save(customerModel);
+//        OccupationModel occupationModel = occupRepoSpringDataJPA.findOccupationById(Integer.valueOf(id));
+//        occupRepoSpringDataJPA.save(occupationModel);
+//        customerModel.setOccupationModel(occupationModel);
+//        custRepoSpringDataJPA.save(customerModel);
     }
 }

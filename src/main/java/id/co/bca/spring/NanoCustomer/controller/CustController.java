@@ -86,8 +86,9 @@ public class CustController {
 //        customerModel.setCustEmail(custEmail);
 //        customerModel.setOccupationModel(null);
 //
-//        occupationAndCustomerService.addCustomerToOccupation(customerModel, oid); --pilih salah satu
-//        occupationAndCustomerService.addCustomerToOccupationWithTransactional(customerModel, oid);
+////        --pilih salah satu
+//        occupationAndCustomerService.addCustomerToOccupation(customerModel, oid);
+////        occupationAndCustomerService.addCustomerToOccupationWithTransactional(customerModel, oid);
 //        return  "redirect:/customer/all";
 //    };
 }

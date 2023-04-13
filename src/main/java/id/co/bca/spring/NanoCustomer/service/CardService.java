@@ -19,8 +19,9 @@ public class CardService {
     public void insert(CardModel cardModel){cardRepoSpringDataJPA.save(cardModel);}
     public void update(CardModel cardModel){cardRepoSpringDataJPA.save(cardModel);}
     public void delete(CardModel cardModel){cardRepoSpringDataJPA.deleteById(cardModel.getId());}
-    public List<CardModel> allCustomers(){return cardRepoSpringDataJPA.findAll();}
+    public List<CardModel> allCards(){return cardRepoSpringDataJPA.findAll();}
     public CardModel findTheCard(CardModel cardModel) {return cardRepoSpringDataJPA.findCardById(cardModel.getId());}
+//    public CardModel findTheCardByCustId(CardModel cardModel) {return cardRepoSpringDataJPA.findCardByCustId(cardModel.getCustomerModel().getId());}
     public List<CardModel> allCardsPage(int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
         return cardRepoSpringDataJPA.findAll(pageable).getContent();

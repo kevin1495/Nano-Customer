@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CardRepoSpringDataJPA extends JpaRepository<CardModel, Integer> {
     CardModel findCardById(Integer cid);
+//    CardModel findCardByCustId(Integer cid);
 }

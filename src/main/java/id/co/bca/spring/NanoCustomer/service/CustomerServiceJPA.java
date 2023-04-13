@@ -41,6 +41,6 @@ public class CustomerServiceJPA implements ICustomerService{
     @Override
     public List<CustomerModel> allCustomersPage(int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
-        return custRepoSpringDataJPA.findAll(pageable).getContent();
+        return custRepoSpringDataJPA.findAllByOrderByCustName(pageable).getContent();
     }
 }
