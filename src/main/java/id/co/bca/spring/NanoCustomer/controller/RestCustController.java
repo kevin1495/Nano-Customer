@@ -37,9 +37,21 @@ public class RestCustController {
     @ResponseStatus(HttpStatus.OK)
     public CustomerModel updateCust(@RequestBody CustomerModel customerModel, @PathVariable("id") int id){
         customerModel.setId(id);
-        return custRepoSpringDataJPA.save(customerModel);
+        iCustomerService.update(customerModel);
+        return customerModel;
     }
-    @DeleteMapping("cust/{id}")
+    @DeleteMapping("/cust/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void deleteCust(@PathVariable("id") int id){custRepoSpringDataJPA.deleteById(id);}
+    public void deleteCust(@PathVariable("id") int id){
+        CustomerModel customer = new CustomerModel();
+        customer.setId(id);
+        iCustomerService.delete(customer);
+    }
+    @GetMapping("/cust/{page}/{size}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<CustomerModel> findAllPage(@PathVariable("page") int page,
+                                           @PathVariable("size") int size)
+    {
+        return iCustomerService.allCustomersPage(page,size);
+    }
 }
