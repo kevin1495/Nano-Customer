@@ -38,10 +38,10 @@ public class CardRestController {
 //        return cardService.findTheCard(card);
 //    }
 
-    @PostMapping("/card")
+    @PostMapping("/card/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public CardModel addCard(@RequestBody CardModel cardModel){
-        cardService.insert(cardModel);
+    public CardModel addCard(@RequestBody CardModel cardModel, @PathVariable("id") int id){
+        cardWithCustService.addCardWithCust(cardModel, id);
         return  cardModel;
     };
 

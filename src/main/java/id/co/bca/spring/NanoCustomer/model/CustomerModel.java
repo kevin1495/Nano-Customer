@@ -19,10 +19,10 @@ public class CustomerModel {
     private String custName;
     @Column(name = "cust_email")
     private String custEmail;
-    @JsonIgnore
-    @JsonBackReference
-    @OneToMany(mappedBy = "customerModel")
-    private List<CardModel> cardModels;
+//    @JsonIgnore
+//    @JsonBackReference
+//    @OneToMany(mappedBy = "customerModel")
+//    private List<CardModel> cardModels;
 //
 //    @ManyToOne
 //    @JoinColumn(name = "occupation_id")

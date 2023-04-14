@@ -15,19 +15,29 @@ public class CardModel {
     private String cardType;
     @Column(name = "card_number")
     private String cardNumber;
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "cust_id")
-    @JsonManagedReference
-    private CustomerModel customerModel;
+    @Column(name = "cust_id")
+    private Integer custId ;
 
-    public CustomerModel getCustomerModel() {
-        return customerModel;
+    public Integer getCustId() {
+        return custId;
     }
 
-    public void setCustomerModel(CustomerModel customerModel) {
-        this.customerModel = customerModel;
+    public void setCustId(Integer custId) {
+        this.custId = custId;
     }
+//    @JsonIgnore
+//    @ManyToOne
+//    @JoinColumn(name = "cust_id")
+//    @JsonManagedReference
+//    private CustomerModel customerModel;
+//
+//    public CustomerModel getCustomerModel() {
+//        return customerModel;
+//    }
+//
+//    public void setCustomerModel(CustomerModel customerModel) {
+//        this.customerModel = customerModel;
+//    }
 
     public Integer getId() {
         return id;

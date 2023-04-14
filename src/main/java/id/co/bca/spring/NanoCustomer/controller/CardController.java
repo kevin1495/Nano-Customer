@@ -39,19 +39,20 @@ public class CardController {
 //        return cardService.findTheCard(card);
 //    }
 
-    @GetMapping("/add")
-    @ResponseStatus(HttpStatus.OK)
-    public String addCustomerNew(@RequestParam("cardtype") String cardType,
-                                 @RequestParam("cardnumber") String cardNumber,
-                                 @RequestParam("cid") int oid){
-        CardModel cardModel = new CardModel();
-        cardModel.setCardType(cardType);
-        cardModel.setCardNumber(cardNumber);
-        cardModel.setCustomerModel(null);
-
-        cardWithCustService.addCardWithCust(cardModel, oid);
-        return  "redirect:/card/all";
-    };
+//    @GetMapping("/add")
+//    @ResponseStatus(HttpStatus.OK)
+//    public String addCustomerNew(@RequestParam("cardtype") String cardType,
+//                                 @RequestParam("cardnumber") String cardNumber,
+//                                 @RequestParam("cid") int cid){
+//        CardModel cardModel = new CardModel();
+//        cardModel.setCardType(cardType);
+//        cardModel.setCardNumber(cardNumber);
+////        cardModel.setCustomerModel(null);
+//        cardModel.setCustId(cid);
+//
+//        cardWithCustService.addCardWithCust(cardModel, cid);
+//        return  "redirect:/card/all";
+//    };
     @GetMapping("/add-v1")
     @ResponseStatus(HttpStatus.OK)
     public String addCard(@RequestParam("cardtype") String cardType,

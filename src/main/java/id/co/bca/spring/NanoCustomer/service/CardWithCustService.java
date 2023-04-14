@@ -17,12 +17,11 @@ public class CardWithCustService {
     CardRepoSpringDataJPA cardRepoSpringDataJPA;
 
     @Transactional
-    public void addCardWithCust(CardModel cardModel, int id){
-
+    public void addCardWithCust(CardModel cardModel, Integer id){
         cardRepoSpringDataJPA.save(cardModel);
         CustomerModel customerModel = custRepoSpringDataJPA.findCustomerById(Integer.valueOf(id));
         custRepoSpringDataJPA.save(customerModel);
-        cardModel.setCustomerModel(customerModel);
+//        cardModel.setCustomerModel(customerModel);
         cardRepoSpringDataJPA.save(cardModel);
     }
 }
