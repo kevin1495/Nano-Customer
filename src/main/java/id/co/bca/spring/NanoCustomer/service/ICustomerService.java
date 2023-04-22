@@ -1,8 +1,6 @@
 package id.co.bca.spring.NanoCustomer.service;
 
 import id.co.bca.spring.NanoCustomer.model.CustomerModel;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 public interface ICustomerService {

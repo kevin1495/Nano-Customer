@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface CustRepoSpringDataJPA extends JpaRepository<CustomerModel,Integer> {
+public interface CustRepo extends JpaRepository<CustomerModel,Integer> {
     CustomerModel findCustomerById(Integer id);
     List<CustomerModel> findAllByOrderByCustName();
     Page<CustomerModel> findAllByOrderByCustName(Pageable pageable);

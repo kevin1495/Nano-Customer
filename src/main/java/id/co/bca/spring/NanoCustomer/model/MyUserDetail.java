@@ -8,26 +8,25 @@ import java.util.Arrays;
 import java.util.Collection;
 
 public class MyUserDetail implements UserDetails {
-    private final User mUser;
+    private final UserModel userModel;
 
-    public MyUserDetail(User user) {
-        this.mUser = user;
+    public MyUserDetail(UserModel userModel){
+        this.userModel = userModel;
     }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(mUser.getRole());
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(userModel.getRole());
         return Arrays.asList(authority);
     }
 
     @Override
     public String getPassword() {
-        return mUser.getPassword();
+        return userModel.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return mUser.getUsername();
+        return userModel.getUserName();
     }
 
     @Override

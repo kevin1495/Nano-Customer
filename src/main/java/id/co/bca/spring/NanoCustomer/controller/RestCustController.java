@@ -1,9 +1,9 @@
 package id.co.bca.spring.NanoCustomer.controller;
 
 import id.co.bca.spring.NanoCustomer.model.CustomerModel;
-import id.co.bca.spring.NanoCustomer.repository.CustRepoSpringDataJPA;
 import id.co.bca.spring.NanoCustomer.service.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,9 +13,8 @@ import java.util.List;
 @RequestMapping("api")
 public class RestCustController {
     @Autowired
+    @Qualifier("customerService")
     ICustomerService iCustomerService;
-    @Autowired
-    CustRepoSpringDataJPA custRepoSpringDataJPA;
     @GetMapping("/cust")
     @ResponseStatus(HttpStatus.OK)
     public List<CustomerModel> findAll(){return iCustomerService.allCustomers();}
@@ -29,7 +28,6 @@ public class RestCustController {
     @PostMapping("/cust")
     @ResponseStatus(HttpStatus.OK)
     public CustomerModel addCust(@RequestBody CustomerModel customerModel){
-//        return custRepoSpringDataJPA.save(customerModel);
           iCustomerService.insert(customerModel);
           return customerModel;
     }

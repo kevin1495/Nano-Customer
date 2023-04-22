@@ -25,19 +25,6 @@ public class CardModel {
     public void setCustId(Integer custId) {
         this.custId = custId;
     }
-//    @JsonIgnore
-//    @ManyToOne
-//    @JoinColumn(name = "cust_id")
-//    @JsonManagedReference
-//    private CustomerModel customerModel;
-//
-//    public CustomerModel getCustomerModel() {
-//        return customerModel;
-//    }
-//
-//    public void setCustomerModel(CustomerModel customerModel) {
-//        this.customerModel = customerModel;
-//    }
 
     public Integer getId() {
         return id;

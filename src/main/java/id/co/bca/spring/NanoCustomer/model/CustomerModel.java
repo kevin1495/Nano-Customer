@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -19,29 +20,32 @@ public class CustomerModel {
     private String custName;
     @Column(name = "cust_email")
     private String custEmail;
-//    @JsonIgnore
-//    @JsonBackReference
-//    @OneToMany(mappedBy = "customerModel")
-//    private List<CardModel> cardModels;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "occupation_id")
-//    @JsonManagedReference
-//    private OccupationModel occupationModel;
-//
-//    public OccupationModel getOccupationModel() {
-//        return occupationModel;
-//    }
-//
-//    public void setOccupationModel(OccupationModel occupationModel) {
-//        this.occupationModel = occupationModel;
-//    }
+    @Column(name = "cust_type")
+    private String custType;
+    @Column(name = "cust_balance")
+    private BigDecimal custBalance;
+
+    public String getCustType() {
+        return custType;
+    }
+
+    public void setCustType(String custType) {
+        this.custType = custType;
+    }
+
+    public BigDecimal getCustBalance() {
+        return custBalance;
+    }
+
+    public void setCustBalance(BigDecimal custBalance) {
+        this.custBalance = custBalance;
+    }
 
     public int getId() {
         return Id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         Id = id;
     }
 
