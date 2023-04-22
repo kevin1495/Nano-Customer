@@ -15,7 +15,7 @@ public class CustomerModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer Id;
+    private int Id;
     @Column(name = "cust_name")
     private String custName;
     @Column(name = "cust_email")
@@ -25,27 +25,11 @@ public class CustomerModel {
     @Column(name = "cust_balance")
     private BigDecimal custBalance;
 
-    public String getCustType() {
-        return custType;
-    }
-
-    public void setCustType(String custType) {
-        this.custType = custType;
-    }
-
-    public BigDecimal getCustBalance() {
-        return custBalance;
-    }
-
-    public void setCustBalance(BigDecimal custBalance) {
-        this.custBalance = custBalance;
-    }
-
     public int getId() {
         return Id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         Id = id;
     }
 
@@ -63,5 +47,21 @@ public class CustomerModel {
 
     public void setCustEmail(String custEmail) {
         this.custEmail = custEmail;
+    }
+
+    public String getCustType() {
+        return custType;
+    }
+
+    public void setCustType(String custType) {
+        this.custType = custType;
+    }
+
+    public BigDecimal getCustBalance() {
+        return custBalance;
+    }
+
+    public void setCustBalance(BigDecimal custBalance) {
+        this.custBalance = custBalance;
     }
 }
